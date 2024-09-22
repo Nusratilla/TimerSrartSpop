@@ -18,22 +18,37 @@ function App() {
   }, [running]);
 
   return (
-    <>
-      <h1>StopStartCounter</h1>
-      <div>
+    <div className="flex flex-col items-center justify-conter py-20">
+      <h1 className="text-2xl font-semibold pb-5">StopStartCounter</h1>
+      <div className="text-xl font-semibold py-5">
         <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
         <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
         <span>{("0" + ((time / 10) % 100)).slice(-2)}</span>
       </div>
-      <div>
+      <div className="w-1/3 max-w-sm flex flex-row justify-evenly">
         {!running ? (
-          <button onClick={() => setRunning(true)}>Start</button>
+          <button
+            className="border rounded-lg py-1 px-3"
+            onClick={() => setRunning(true)}
+          >
+            Start
+          </button>
         ) : (
-          <button onClick={() => setRunning(false)}>Stop</button>
+          <button
+            className="border rounded-lg py-1 px-3"
+            onClick={() => setRunning(false)}
+          >
+            Stop
+          </button>
         )}
-        <button onClick={() => setTime(0)}>Reset</button>
+        <button
+          className="border rounded-lg py-1 px-3"
+          onClick={() => setTime(0)}
+        >
+          Reset
+        </button>
       </div>
-    </>
+    </div>
   );
 }
 
